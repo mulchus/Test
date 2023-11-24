@@ -1,9 +1,62 @@
+lazy_var = 5
+
+
+def func(abc):
+    lazy_var = abc
+
+    def nested():
+        nonlocal lazy_var
+        lazy_var += 1
+        return lazy_var
+
+    def nested2():
+        nonlocal lazy_var
+        lazy_var *= 2
+        return lazy_var
+
+    print(nested())
+    if nested() > 4:
+        print(nested2())
+
+
+func(2)
+
+func(4)
+
+
+exit()
+
+class A:
+    def __init__(self, var1, var2):
+        self.var1 = var1
+        self.var2 = var2
+        self.var1 *= 2
+
+
+obj = A(5, 7)
+# obj.var1 = 5
+print(vars())
+print(obj.var1)
+print(obj.__init__(5, 6))
+print(obj.__dict__)
+
+
+exit()
+
+
 from sys import platform
+
+# print(dir(__builtins__))
+#
+# print(globals())
+# print(globals()['__builtins__'])
+print(__doc__)
 
 def linux_print():
     print('Printing from Linux...')
 
 def win32_print():
+    print(locals() is globals())
     print('Printing from Windows...')
 
 def darwin_print():
@@ -14,22 +67,7 @@ printer = globals()[platform + '_print']
 printer()
 
 exit()
-class A:
-    def __init__(self, var1, var2):
-        self.var1 = var1
-        self.var2 = var2
-        self.var1 *= 2
 
-
-obj = A(5, 7)
-# obj.var1 = 5
-print(obj.var1)
-print(obj.__init__(5, 6))
-print(obj.__dict__)
-
-
-
-exit()
 from functools import partial
 def power(exp, base, free):
     return base ** exp
@@ -50,18 +88,7 @@ print(current_mean(10, 2))
 
 
 exit()
-lazy_var = 5
-def func():
-    lazy_var = 2
-    def nested():
-        nonlocal lazy_var
-        lazy_var += 1
-        print(lazy_var + 1)
-    nested()
 
-func()
-
-exit()
 
 print(abs(-15))  # Standard use of a built-in function
 abs = 20  # Redefine a built-in name in the global scope
