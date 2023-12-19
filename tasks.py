@@ -17,6 +17,15 @@
 #
 # exit()
 
+
+lis = ['a', 'b', 'c', 'b']
+lis.remove("b")
+print(lis)
+lis.remove("d")
+print(lis)
+
+exit()
+
 def duplicate_nums(nums):
     dubl_nums = set([num for num in nums if nums.count(num) > 1])
     return dubl_nums if dubl_nums else None
