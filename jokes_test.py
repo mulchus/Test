@@ -48,8 +48,27 @@ print(a.__dir__())
 for atr in a.__dir__():
     print(f'{atr}: {a.__getattribute__(atr)}')
 
-# print(a.__dir__())
-# print(a.__dict__)
-# print(a.__hash__)
+print(a.__dir__())
+print(a.__dict__)
+print(a.__hash__)
+
+
+# JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES
+
+
+import sys
+sys.allow_boolean_assignment = 1
+
+Тrue = False
+if Тrue:
+    print("Тrue is Тrue")
+else:
+    print("Тrue is False")
+
+
+# JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES
+
+
+
 
 
