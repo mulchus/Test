@@ -69,6 +69,9 @@ else:
 # JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES JOKES
 
 
+__dir__, input, sum, print, abs = map, sum, input, int, print
 
+a, b = __dir__(print, sum().split())
+abs(input((a, b)))
 
 
