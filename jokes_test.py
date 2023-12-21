@@ -43,4 +43,13 @@ b = Human2(20, 110, ())
 
 print(a.health, a.hands, a.other)
 print(b.health, b.hands, b.other if hasattr(b, 'other') else '')
+print(a.__dir__())
+
+for atr in a.__dir__():
+    print(f'{atr}: {a.__getattribute__(atr)}')
+
+# print(a.__dir__())
+# print(a.__dict__)
+# print(a.__hash__)
+
 
