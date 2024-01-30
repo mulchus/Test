@@ -23,8 +23,13 @@ class Fruit:
     
     # 4. Необходимо доработать класс Fruit таким образом, чтобы можно было использовать его в менеджере контекста
     #    Выброшенное исключение нужно перехватить и распечатать его значение
-    def exception(self):
-        raise Exception(f'Fruit_exception: {self.name}')
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type:
+            print(exc_val)
+        return True
 
 
 class Banana(Fruit):
@@ -59,8 +64,9 @@ f1 = Fruit('Apple')
 for letter in f1:
     print(letter)
     
-try:
-    f1.exception()
-except Exception as e:
-    print(e)
+with Fruit('Apple') as f1:
+    print(f'This is {f1.name}')
+    raise Exception('this is exception')
+
+print('The end')
     
