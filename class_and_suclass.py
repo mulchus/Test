@@ -69,4 +69,21 @@ with Fruit('Apple') as f1:
     raise Exception('this is exception')
 
 print('The end')
+
+
+class Inspector:
+    def __getitem__(self, index):
+        print(len(index))
+        index = [item + 1 for item in index]
+        # for i in range(len(index)):
+        #     print(i)
+        #     index[i] += 1
+        return index
+
+
+print(Inspector)
+print(Inspector())
+print(Inspector()[1, 2, 3])
+print(Inspector()(1, 2, 3))
+print(Inspector()["a", "b", 5])
     
