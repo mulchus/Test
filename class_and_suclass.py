@@ -84,6 +84,20 @@ class Inspector:
 print(Inspector)
 print(Inspector())
 print(Inspector()[1, 2, 3])
-print(Inspector()(1, 2, 3))
-print(Inspector()["a", "b", 5])
-    
+# print(Inspector()(1, 2, 3))
+# print(Inspector()["a", "b", 5])
+
+
+class Age:
+    def calc_adult_age(self, age):
+        if age < 18:
+            print('Not adult')
+        else:
+            print('Adult')
+try:
+    with Age() as obj:      # TypeError: 'Age' object does not support the context manager protocol
+        obj.calc_adult_age(13)
+except TypeError as e:
+    print(e)
+obj = Age()
+obj.calc_adult_age(13)  # "Not adult"
