@@ -18,4 +18,19 @@ l=[['a', 'b', 'c'], ['1', '2'], ['#']]
 print(sum(l, []))
 
 m = ['1', '2', '3']
-print(sum(m, ''))   # TypeError: sum() can't sum strings [use ''.join(seq) instead]
+# print(sum(m, ''))   # TypeError: sum() can't sum strings [use ''.join(seq) instead]
+
+# фильтрация списка в Python, на примере функции filter - нечетные
+nums = [11, 22, 31, 42, 51]
+
+def is_num_odd(z):
+  return z % 2 != 0
+
+out_nums = filter(is_num_odd, nums)
+out_nums = list(out_nums)
+print(out_nums) # -> [11, 31, 51]
+
+Остальные методы фильтрации и их сравнение можно увидеть в статье - https://techbeamers.com/how-do-you-filter-a-list-in-python/
+
+
+
