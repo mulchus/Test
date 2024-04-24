@@ -43,3 +43,11 @@ print(find_words(["omk"]))
 #             if (wordset&set1 == wordset) or (wordset&set2 == wordset) or (wordset&set3 == wordset):
 #                 res.append(i)
 #         return res
+
+import re
+text = "Hello, world!"
+result = re.split(r"\W+", text)
+print(result)
+
+result = re.subn(r"\s", "-", text)
+print(result)
