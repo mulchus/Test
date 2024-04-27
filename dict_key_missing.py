@@ -13,3 +13,12 @@ dict2 = {'a': 1, 'b': 2}
 print(dict2.setdefault('a'))
 print(dict2.setdefault('c', 3))
 print(dict2)
+
+# Получение словаря из списка кортежей и списка с названиями колонок
+column_names = ['name', 'salary', 'job']
+db_rows = [('Alice', 180000, 'data scientist'),
+           ('Bob', 99000, 'mid-level manager'),
+           ('Frank', 87000, 'CEO')]
+db = [dict(zip(column_names, row)) for row in db_rows]
+print(db)
+
