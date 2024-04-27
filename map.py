@@ -18,6 +18,13 @@ print(list(multiplications))
 print()
 # print(sorted(squared)) == sorted(squared))
 
+# Объединение двух списков с помощью функции zip()
+first_names = ['John', 'Emma', 'Jessica']
+last_names = ['Doe', 'Smith', 'Thompson']
+full_names = list(map(lambda x, y: x + ' ' + y, first_names, last_names))
+print(full_names) # Output: ['John Doe', 'Emma Smith', 'Jessica Thompson']
+
+
 
 def square(number):
     return number ** 2
