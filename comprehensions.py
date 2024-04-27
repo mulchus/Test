@@ -34,3 +34,5 @@ rez_of_set = ['FizzBuzz' if x % 15 == 0 else
               'Buzz' if x % 5 == 0 else
               x for x in range(1, 101)]
 print(rez_of_set)
+
+print([line.strip() for line in open("file.txt")])
