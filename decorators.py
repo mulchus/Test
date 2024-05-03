@@ -68,3 +68,18 @@ def some_func():
     time.sleep(1)
 
 some_func()
+
+
+def logger(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        print(f"Called {func.__name__} with args={args} and kwargs={kwargs}. Result: {result}")
+        return result
+    return wrapper
+
+@logger
+def add(x, y):
+    return x + y
+
+add(1, 2)
+# Output: Called add with args=(1, 2) and kwargs={}. Result: 3
