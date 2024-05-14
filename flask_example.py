@@ -1,10 +1,20 @@
 from flask import Flask, request, session, render_template, redirect
 import jinja2
-
+from flask_sqlalchemy import SQLAlchemy
+import json
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'
+db = SQLAlchemy(app)
+
 app.secret_key = 'some_secret_key'
 loader = jinja2.FileSystemLoader('templates')
+
+
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
 
 
 @app.route('/')
@@ -62,7 +72,19 @@ def submit():
     name = request.form['name']
     verb = request.form['verb']
     # сохранение данных в базу данных
+    db.create_all()
+    user = User(name=name)
+    db.session.add(user)
+    db.session.commit()
+    # перенаправление
     return redirect(f'/start?name={name}&verb={verb}')
+
+
+@app.route('/get_db_data')
+def get_db_data():
+    users = User.query.all()
+    users_names = [user.name for user in users]
+    return json.dumps(users_names, ensure_ascii=False)
 
 
 if __name__ == '__main__':
