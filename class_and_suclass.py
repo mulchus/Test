@@ -101,3 +101,39 @@ except TypeError as e:
     print(e)
 obj = Age()
 obj.calc_adult_age(13)  # "Not adult"
+
+
+# пример того, как ООП можно использовать для применения принципов DRY
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def introduce(self):
+        print(f"My name is {self.name} and I am {self.age} years old.")
+
+
+class Student(Person):
+    def __init__(self, name, age, major):
+        super().__init__(name, age)
+        self.major = major
+
+    def introduce(self):
+        super().introduce()
+        print(f"I am majoring in {self.major}.")
+
+
+class Teacher(Person):
+    def __init__(self, name, age, department):
+        super().__init__(name, age)
+        self.department = department
+
+    def introduce(self):
+        super().introduce()
+        print(f"I teach in the {self.department} department.")
+
+
+student = Student("John", 20, "Computer Science")
+teacher = Teacher("Jane", 30, "Computer Science")
+student.introduce()
+teacher.introduce()
