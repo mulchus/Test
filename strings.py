@@ -51,3 +51,20 @@ print(result)
 
 result = re.subn(r"\s", "-", text)
 print(result)
+
+
+class Example:
+    def __init__(self):
+        self.value = 42
+
+    def __repr__(self):
+        return 'Example(' + str(self.value) + ')'
+
+    def __str__(self):
+        return 'The value is ' + str(self.value)
+
+
+e = Example()
+
+print(str(e))   # "The value is 42"
+print(repr(e))  # "Example(42)"
