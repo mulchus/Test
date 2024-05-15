@@ -18,14 +18,16 @@ message = """Привет от Питона!<br>
             Поэтому, если запрос не пришел сразу, то нужно убедиться, что он не пришел в указанное время.<br>
           """
 
+print(env("SMTP_SERVER"), env("SMTP_PORT"), sender_email, receiver_email, env("SENDER_PASSWORD"))
+
 mess = MIMEText(message, 'html')
 mess['From'] = sender_email
 mess['To'] = receiver_email
 mess['Subject'] = subject
 
-print(mess)
+print(mess.as_string())
 
-smtp_server = smtplib.SMTP(env("SMTP_SERVER"), 587)
+smtp_server = smtplib.SMTP(env("SMTP_SERVER"), int(env("SMTP_PORT")))
 smtp_server.starttls()
 smtp_server.login(sender_email, env("SENDER_PASSWORD"))
 smtp_server.sendmail(sender_email, receiver_email,  mess.as_string())
