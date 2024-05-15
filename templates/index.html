@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Look Ma, I'm using Jinja!</title>
+    </head>
+    <body>
+        Hi there - I'm {{ data.name }}, and I {{ data.verb }} programming!
+    <form action="/submit" method="POST">
+        <input type="text" name="name" value="{{ data.name }}"/>
+        <input type="text" name="verb" value="{{ data.verb }}"/>
+        <input type="submit">
+    </form>
+    </body>
+</html>
