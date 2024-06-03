@@ -22,3 +22,11 @@ db_rows = [('Alice', 180000, 'data scientist'),
 db = [dict(zip(column_names, row)) for row in db_rows]
 print(db)
 
+from collections import ChainMap
+
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'c': 3, 'd': 4}
+
+chain_map = ChainMap(dict1, dict2)
+print(chain_map)
+print(dict(chain_map))
