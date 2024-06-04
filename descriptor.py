@@ -1,3 +1,4 @@
+# https://habr.com/ru/companies/otus/articles/801595/
 import time
 
 
