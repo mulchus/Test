@@ -84,3 +84,10 @@ print(f'Result: {value:{"4.2" if value < 100 else "8.4"}}')
 
 print(f"{(lambda x: x**2)(3)}")
 # 9
+
+from datetime import datetime
+landing = datetime(1969, 7, 20, 20, 17, 40)
+
+landing.strftime("%a, %d %b %Y %H:%M:%S")
+
+print(f"{landing:%a, %d %b %Y %H:%M:%S}")
