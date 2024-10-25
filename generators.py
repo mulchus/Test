@@ -1,4 +1,5 @@
 def generator():
+    # return 'hello'  # raise StopIteration
     yield from range(3)  # отдаст 0, 1, 2
     return 'hello'  # не выведется
 
