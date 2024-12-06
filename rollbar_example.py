@@ -7,11 +7,12 @@ ROLLBAR_ACCESS_TOKEN = env('ROLLBAR_ACCESS_TOKEN')
 
 rollbar.init(
   access_token=ROLLBAR_ACCESS_TOKEN,
-  code_version='1.0'
+  code_version='1.0',
+  environment='dev',
 )
 
 # report_message
-# rollbar.report_message('Rollbar is configured correctly', 'info')
+rollbar.report_message('Rollbar is configured correctly', 'info')
 
 # report_error
 # try:
