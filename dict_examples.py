@@ -48,3 +48,28 @@ x = {"a": 1, "d": 2, 'z': 3, 'p': 20}
 y = {"a": 12, "c": 4, 'b': 5, 'p': 20}
 added, removed, modified, same = compare_templates_indexes(y, x)
 print(added, removed, modified, same)
+
+
+# разница между двумя списками словарей, например кверисетами
+list_of_dicts_1 = [
+    {"a": 1, "b": 2, 'c': 5, 'd': 20},
+    {"a": 2, "b": 4, 'c': 5, 'd': 20},
+    {"a": 3, "b": 6, 'c': 5, 'd': 20},
+    {"a": 4, "b": 8, 'c': 5, 'd': 20},
+    {"a": 5, "b": 10, 'c': 7, 'd': 20},
+    {"a": 6, "b": 12, 'c': 7, 'd': 20},
+]
+
+list_of_dicts_2 = [
+    {"a": 1, "b": 2, 'c': 5, 'd': 20},
+    {"a": 2, "b": 4, 'c': 5, 'd': 20},
+    {"a": 3, "b": 6, 'c': 5, 'd': 20},
+]
+
+diff = []
+for dict1 in list_of_dicts_1:
+    if dict1 not in list_of_dicts_2:
+        diff.append(dict1)
+
+print(diff)
+
