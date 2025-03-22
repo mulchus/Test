@@ -66,10 +66,11 @@ list_of_dicts_2 = [
     {"a": 3, "b": 6, 'c': 5, 'd': 20},
 ]
 
-diff = []
-for dict1 in list_of_dicts_1:
-    if dict1 not in list_of_dicts_2:
-        diff.append(dict1)
+diff = [dict1 for dict1 in list_of_dicts_1 if dict1 not in list_of_dicts_2]
+
+# for dict1 in list_of_dicts_1:
+#     if dict1 not in list_of_dicts_2:
+#         diff.append(dict1)
 
 print(diff)
 
