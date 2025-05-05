@@ -19,8 +19,8 @@ def some_generator():
 
 gen = some_generator()
 a = next(gen)
-print(f'Это a={a}')
 
-while a < 4:
-    a = gen.send(a + 10)
+while a < 6:
     print(f'Это a={a}')
+    a = gen.send(a + 10)
+
