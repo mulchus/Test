@@ -9,6 +9,7 @@
 """
 # classes_composition.py
 
+print('Пример с композицией')
 
 class Engine:
     def start(self):
@@ -33,6 +34,33 @@ my_car = Car()
 
 my_car.engine.start()
 my_car.engine.stop()
+
+my_car.start_engine()
+my_car.stop_engine()
+
+
+print('\nПример с наследованием')
+
+class Engine:
+    def start(self):
+        print('Engine started')
+
+    def stop(self):
+        print('Engine stopped')
+
+
+class Car(Engine):
+    def start_engine(self):
+        self.start()
+
+    def stop_engine(self):
+        self.stop()
+
+
+my_car = Car()
+
+my_car.start()
+my_car.stop()
 
 my_car.start_engine()
 my_car.stop_engine()
