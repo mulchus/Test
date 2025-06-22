@@ -8,16 +8,16 @@ import functools
 def benchmark(chars):
     def actual_decorator(func):
         import time
-        
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             start = time.time()
-            return_value = func(*args, **kwargs).text[:chars]
+            return_value = func(*args, **kwargs)
             end = time.time()
             print('[*] Время выполнения: {} секунд.'.format(end - start))
             return return_value
         return wrapper
     return actual_decorator
+
 
 def trace(func):
     @functools.wraps(func)
@@ -32,6 +32,7 @@ def trace(func):
 
         return original_result
     return wrapper
+
 
 @trace
 @benchmark(500)
@@ -83,3 +84,28 @@ def add(x, y):
 
 add(1, 2)
 # Output: Called add with args=(1, 2) and kwargs={}. Result: 3
+
+
+# Асинъронный декоратор
+from typing import Coroutine
+import asyncio
+
+def deco(coroutine: Coroutine):
+    async def wrapper(*args, **kwargs):
+        print('start')
+        result = await coroutine(*args, **kwargs)
+        print('end')
+        return result
+    return wrapper
+
+
+@deco
+async def func():
+    await asyncio.sleep(1)
+    return ('some result of func', )
+
+
+rez = asyncio.run(func())
+print(rez)
+print(len(rez))
+print(type(rez))
