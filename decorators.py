@@ -109,3 +109,20 @@ rez = asyncio.run(func())
 print(rez)
 print(len(rez))
 print(type(rez))
+
+
+from functools import lru_cache
+
+
+@time_it  # измеряем время выполнения функции
+@lru_cache(maxsize=128)  # кэшируем резульат выполнения функции
+def get_42():
+    time.sleep(1)
+    return 42
+
+print(get_42())
+print(get_42())
+print(get_42())
+# get_42 took 1.0003461837768555 seconds to execute.
+# get_42 took 0.0 seconds to execute.
+# get_42 took 0.0 seconds to execute.
