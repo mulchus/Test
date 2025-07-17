@@ -97,3 +97,28 @@ class Class3(Class2, Class1, Class0):
 print(Class3.mro())
 a = Class3()
 a.m()
+
+
+# глубокий MRO
+class A:
+    pass
+
+class B:
+    pass
+
+class C(A):
+    pass
+
+class D(B):
+    pass
+
+class E(C):
+    pass
+
+class F(D):
+    pass
+
+class G(E, F):
+    pass
+
+print(G.__mro__)
