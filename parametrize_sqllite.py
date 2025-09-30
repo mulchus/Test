@@ -31,9 +31,10 @@ name = "Bob%'; DROP TABLE users;--"
 query = f"SELECT * FROM users WHERE name like '%{name}%'"
 print(query)
 
-print(cursor.execute(query).fetchall())
+print(cursor.executescript(query).fetchall())
 print_users(4)
 
+# если print(cursor.execute(query).fetchall()), то
 # Traceback (most recent call last):
 #   File ".\Test\parametrize_sqllite.py", line 31, in <module>
 #     print(cursor.execute(query).fetchall())
